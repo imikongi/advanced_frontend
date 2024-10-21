@@ -5,11 +5,15 @@ import App from './App';
 import {LazyHomePage} from './pages/MainPage/HomePage.async';
 import {LazyAboutPage} from './pages/AboutPage/AboutPage.async';
 import Loader from './components/Loader/Loader';
+import ThemeProvider from './theme/ThemeProvider';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element:
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>   ,
     children: [
       {
         path: '/',
