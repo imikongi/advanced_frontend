@@ -2,12 +2,13 @@ import React, {useContext, useState} from 'react';
 import './styles/index.scss'
 import {Link, Outlet} from 'react-router-dom';
 import {useTheme} from './theme/useTheme';
+import {classNames} from './helpers/classNames/className';
 
 const App = () => {
   const {theme, toggleTheme} = useTheme()
 
   return (
-    <div className={`app ${theme}`}>
+    <div className={classNames('app', {}, [theme])}>
       <button onClick={toggleTheme}>CHANGE THEME</button>
       <div>
         <Link to="/">Home</Link>
