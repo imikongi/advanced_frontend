@@ -1,8 +1,8 @@
-import React, {useContext, useState} from 'react';
+import React from 'react';
 import './styles/index.scss'
 import {Link, Outlet} from 'react-router-dom';
-import {useTheme} from './theme/useTheme';
-import {classNames} from './helpers/classNames/className';
+import {classNames} from 'shared/lib/classNames/className';
+import {useTheme} from 'app/providers/ThemeProvider';
 
 const App = () => {
   const {theme, toggleTheme} = useTheme()

@@ -1,11 +1,12 @@
 import {createRoot} from 'react-dom/client';
 import React, {StrictMode, Suspense} from 'react';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import App from './App';
-import {LazyHomePage} from './pages/MainPage/HomePage.async';
-import {LazyAboutPage} from './pages/AboutPage/AboutPage.async';
-import Loader from './components/Loader/Loader';
-import ThemeProvider from './theme/ThemeProvider';
+import App from './app/App';
+import {ThemeProvider} from 'app/providers/ThemeProvider';
+import {LazyHomePage} from 'pages/HomePage/ui/HomePage.async';
+import {LazyAboutPage} from 'pages/AboutPage/ui/AboutPage.async';
+import {HomePage} from 'pages/HomePage';
+import {AboutPage} from 'pages/AboutPage';
 
 const router = createBrowserRouter([
   {
@@ -18,15 +19,15 @@ const router = createBrowserRouter([
       {
         path: '/',
         element:
-          <Suspense fallback={<Loader/>}>
-              <LazyHomePage />
+          <Suspense fallback={<div>Loading...</div>  }>
+              <HomePage />
           </Suspense>   ,
       },
       {
         path: '/about',
         element:
-          <Suspense fallback={<Loader/>}>
-              <LazyAboutPage />
+          <Suspense fallback={<div>Loading...</div>  }>
+              <AboutPage />
           </Suspense>,
       },
     ],
