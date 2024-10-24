@@ -1,19 +1,19 @@
 import React from 'react';
 import './styles/index.scss'
-import {Link, Outlet} from 'react-router-dom';
-import {classNames} from 'shared/lib/classNames/className';
+import {Outlet} from 'react-router-dom';
+import {classNames} from 'shared/lib/classNames/classNames';
 import {useTheme} from 'app/providers/ThemeProvider';
+import {Navbar} from 'widgets/Navbar';
 
 const App = () => {
   const {theme, toggleTheme} = useTheme()
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <button onClick={toggleTheme}>CHANGE THEME</button>
       <div>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <Navbar/>
         <Outlet/>
+        <button onClick={toggleTheme}>CHANGE THEME</button>
       </div>
     </div>
   );
