@@ -4,6 +4,7 @@ import {Outlet} from 'react-router-dom';
 import {classNames} from 'shared/lib/classNames/classNames';
 import {useTheme} from 'app/providers/ThemeProvider';
 import {Navbar} from 'widgets/Navbar';
+import {Sidebar} from 'widgets/Sidebar';
 
 const App = () => {
   const {theme, toggleTheme} = useTheme()
@@ -12,8 +13,13 @@ const App = () => {
     <div className={classNames('app', {}, [theme])}>
       <div>
         <Navbar/>
-        <Outlet/>
-        <button onClick={toggleTheme}>CHANGE THEME</button>
+        <div className={'content-page'}>
+          <Sidebar/>
+          <div className={'page-wrapper'}>
+            <Outlet/>
+          </div>
+        </div>
+
       </div>
     </div>
   );
